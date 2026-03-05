@@ -1,3 +1,4 @@
+package jcolonia.daw2025.tablasmvc;
 /**
 * Núcleo de aplicación de consola de texto con menús. Aplicación
 * de texto usando tablas de multiplicar infantiles clásicas. 
