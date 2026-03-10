@@ -1,4 +1,21 @@
+# Build folders
 /bin/
+/out/
+
+# Eclipse
 /.classpath
 /.project
 /.settings/
+
+# IntelliJ
+/.idea
+*.iml
+*.iws
+
+# Logs and temp files
+*.log
+*.tmp
+
+# OS Files
+.DS_Store
+Thumbs.db
