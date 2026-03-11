@@ -88,4 +88,12 @@ public class TablaMultiplicar {
 		return texto.toString();
 	}
 
+	/**
+	 * Devuelve el numero de la tabla
+	 * @return numero Numero de la tabla
+	 */
+	public int getNumero() {
+		return numero;
+	}
+
 }

@@ -61,16 +61,16 @@ public class ControlTablaMultiplicar {
 			opción = menú.pedirOpcion();
 
 			switch(opción){
-			case 1: // Mostrar tabla
+			case 1:
 				mostrarTabla();
 				break;
-			case 2: //Cambiar tabla
-				cambiarTabla();
-				break;
-			case 3: // Exportar tabla
+			case 2:
 				exportarTabla();
 				break;
-			case 0: // Salir
+			case 3:
+				cambiarTabla();
+				break;
+			case 4: // Salir
 				break;
 			default: // Opciones no implementadas
 				opciónNoDisponible();
@@ -100,7 +100,6 @@ public class ControlTablaMultiplicar {
 		int n;
 
 		n = VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
-
 		tabla=new TablaMultiplicar(n);
 		tabla.generarTabla();
 	}
@@ -110,7 +109,8 @@ public class ControlTablaMultiplicar {
 	*/
 	private void exportarTabla(){
 		ExportaciónArchivo Export;
-		Export = new ExportaciónArchivo(FORMATO_RUTA_ARCHIVO_EXPORTACIÓN);
+		String rutaArchivo = String.format(FORMATO_RUTA_ARCHIVO_EXPORTACIÓN, tabla.getNumero());
+		Export = new ExportaciónArchivo(rutaArchivo);
 		Export.guardar(tabla.toListaExportacion());
 	}
 
@@ -121,8 +121,5 @@ public class ControlTablaMultiplicar {
 	private void opciónNoDisponible(){
 		VistaGeneral.mostrarAviso("Opcion no disponible");
 	}
-
-
-
 
 }
