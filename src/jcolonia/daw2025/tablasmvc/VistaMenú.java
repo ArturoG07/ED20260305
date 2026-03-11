@@ -33,8 +33,21 @@ public class VistaMenú{
 	public void mostrarTitulo() {
 		System.out.println(titulo);
 		for (int i= 0; i < titulo.length(); i++) {
-			System.out.println("_");
+			System.out.print("_");
 		}
+		System.out.println();
+	}
+
+	/**
+	 * Imprime el titulo por pantalla
+	 * @param titulo2 Titulo que se quiere mostrar
+	 */
+	public void mostrarTitulo2(String titulo2) {
+		System.out.println(titulo2);
+		for (int i= 0; i < titulo2.length(); i++) {
+			System.out.print("_");
+		}
+		System.out.println();
 	}
 
 	/**

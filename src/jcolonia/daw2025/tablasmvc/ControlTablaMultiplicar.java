@@ -42,6 +42,9 @@ public class ControlTablaMultiplicar {
 	* tabla activa.
 	*/
 	public void init(){
+		VistaMenú menú;
+		menú = new VistaMenú("Tablas de multiplicar",OPCIONES_MENÚ_PRINCIPAL);
+		menú.mostrarTitulo();
 		cambiarTabla();
 	}
 
@@ -57,6 +60,8 @@ public class ControlTablaMultiplicar {
 		menú = new VistaMenú("Tablas de multiplicar",OPCIONES_MENÚ_PRINCIPAL);
 
 		do{
+			System.out.println("Estamos en la tabla del " + tabla.getNumero());
+			menú.mostrarTitulo2("Menu Principal");
 			menú.mostrarOpciones();
 			opción = menú.pedirOpcion();
 
@@ -90,6 +95,7 @@ public class ControlTablaMultiplicar {
 		List<String> tablaPantalla = tabla.toListaPantalla();
 		for (int i = 0; i < 10; i++) {
 			VistaGeneral.mostrarTexto(tablaPantalla.get(i));
+			System.out.println();
 		}
 	}
 

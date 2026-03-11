@@ -21,7 +21,7 @@ public class VistaGeneral {
 	 */
 	public VistaGeneral() {
 		// Formato para texto normal: texto seguido de un salto de línea
-		FORMATO_PRINTF_MOSTRARTEXTO = "%s%n";
+		FORMATO_PRINTF_MOSTRARTEXTO = "%s";
 
 		// Formato para avisos: rodeado de asteriscos y con salto de línea
 		FORMATO_PRINTF_MOSTRARAVISO = "!!! %s !!!%n";
