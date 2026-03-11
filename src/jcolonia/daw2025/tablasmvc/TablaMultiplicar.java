@@ -81,11 +81,11 @@ public class TablaMultiplicar {
 	 */
 	@Override
 	public String toString() {
-		String texto = "";
+		StringBuilder texto = new StringBuilder();
 		for (String linea : listaTextos) {
-			texto += linea + "\n";
+			texto.append(linea).append("\n");
 		}
-		return texto;
+		return texto.toString();
 	}
 
 }
