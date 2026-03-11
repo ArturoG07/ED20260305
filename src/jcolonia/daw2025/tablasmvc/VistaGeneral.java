@@ -16,6 +16,9 @@ public class VistaGeneral {
 	 */
 	private String FORMATO_PRINTF_MOSTRARAVISO;
 
+	/**
+	 * Iniciacion de los formatos
+	 */
 	public VistaGeneral() {
 		// Formato para texto normal: texto seguido de un salto de línea
 		FORMATO_PRINTF_MOSTRARTEXTO = "%s%n";
