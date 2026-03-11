@@ -15,27 +15,13 @@ public class VistaGeneral {
 	 * Formato para los avisos
 	 */
 	private String FORMATO_PRINTF_MOSTRARAVISO;
-	/**
-	 * Formato para los titulos
-	 */
-	private String FORMATO_PRINTF_MOSTRARTITULO;
-	/**
-	 * Formato para los titulos 2
-	 */
-	private String FORMATO_PRINTF_MOSTRARTITULO2;
 
-	/**
-	 * Crea una vista general con los formatos deseados
-	 * @param FORMATO_PRINTF_MOSTRARTEXTO Formato para textos comunes
-	 * @param FORMATO_PRINTF_MOSTRARTITULO2 Formato para avisos
-	 * @param FORMATO_PRINTF_MOSTRARTITULO Formato 1 para titulos
-	 * @param FORMATO_PRINTF_MOSTRARAVISO Formato 2 para titulos
-	 */
-	public VistaGeneral(String FORMATO_PRINTF_MOSTRARTEXTO, String FORMATO_PRINTF_MOSTRARTITULO2, String FORMATO_PRINTF_MOSTRARTITULO, String FORMATO_PRINTF_MOSTRARAVISO) {
-		this.FORMATO_PRINTF_MOSTRARTEXTO = FORMATO_PRINTF_MOSTRARTEXTO;
-		this.FORMATO_PRINTF_MOSTRARTITULO2 = FORMATO_PRINTF_MOSTRARTITULO2;
-		this.FORMATO_PRINTF_MOSTRARTITULO = FORMATO_PRINTF_MOSTRARTITULO;
-		this.FORMATO_PRINTF_MOSTRARAVISO = FORMATO_PRINTF_MOSTRARAVISO;
+	public VistaGeneral() {
+		// Formato para texto normal: texto seguido de un salto de línea
+		FORMATO_PRINTF_MOSTRARTEXTO = "%s%n";
+
+		// Formato para avisos: rodeado de asteriscos y con salto de línea
+		FORMATO_PRINTF_MOSTRARAVISO = "!!! %s !!!%n";
 	}
 
 	/**
@@ -59,7 +45,7 @@ public class VistaGeneral {
 	 * @param texto Titulo que se quiere mostrar
 	 */
 	public void mostrarTitulo(String texto) {
-		System.out.printf(FORMATO_PRINTF_MOSTRARTITULO, texto);
+		System.out.printf(texto);
 	}
 
 	/**
@@ -67,22 +53,33 @@ public class VistaGeneral {
 	 * @param texto Titulo que se quiere mostrar
 	 */
 	public void mostrarTitulo2(String texto) {
-		System.out.printf(FORMATO_PRINTF_MOSTRARTITULO2, texto);
+		System.out.printf(texto);
 	}
 
 	/**
 	 * Pide un numero por consola
 	 * @param texto Mensaje para pedir el numero
-	 * @return Numero escrito por consola
+	 * @return Num Numero escrito por consola
 	 */
-	public int pedirNumero(String texto) {
+	public int pedirNúmero(String texto) {
 		Scanner sc;
 		sc = getScEntrada();
 		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
-		return sc.nextInt();
+		int Num;
+		Num = sc.nextInt();
+		sc.nextLine();
+		return Num;
 	}
 
+	/**
+	 * Pausa la ejecución hasta que el usuario pulse Enter
+	 * @param texto Mensaje que se muestra antes de la pausa
+	 */
 	public void pausa(String texto) {
+		Scanner sc;
+		sc = getScEntrada();
+		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
+		sc.nextLine();
 	}
 
 	/**
@@ -97,7 +94,14 @@ public class VistaGeneral {
 		return sc.nextBoolean();
 	}
 
-	public List<String> mostrarLista() {
+	/**
+	 * Muestra una lista de textos por pantalla
+	 * @param lista Lista de textos a mostrar
+	 */
+	public void mostrarLista(List<String> lista) {
+		for (String elemento : lista) {
+			System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, elemento);
+		}
 	}
 
 	/**
