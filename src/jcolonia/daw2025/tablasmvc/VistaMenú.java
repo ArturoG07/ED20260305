@@ -55,7 +55,10 @@ public class VistaMenú{
 	 */
 	public void mostrarOpciones() {
 		for (int i= 0; i < opciones.size(); i++) {
-			System.out.print(i+1 + ")");
+			if (i+1 != opciones.size()) {
+			System.out.print(i+1 + ")"); } else {
+				System.out.print(0 + ")");
+			}
 			System.out.print(opciones.get(i));
 			System.out.println();
 		}

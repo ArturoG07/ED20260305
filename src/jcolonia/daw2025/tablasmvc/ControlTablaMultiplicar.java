@@ -75,7 +75,7 @@ public class ControlTablaMultiplicar {
 			case 3:
 				cambiarTabla();
 				break;
-			case 4: // Salir
+			case 0: // Salir
 				break;
 			default: // Opciones no implementadas
 				opciónNoDisponible();
