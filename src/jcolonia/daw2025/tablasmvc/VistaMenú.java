@@ -72,7 +72,7 @@ public class VistaMenú{
 		int num;
 		Scanner sc;
 		sc = new Scanner(System.in);
-		System.out.println("Elija la opcion");
+		System.out.print("Elija la opcion");
 		num = sc.nextInt();
 		return num;
 	}

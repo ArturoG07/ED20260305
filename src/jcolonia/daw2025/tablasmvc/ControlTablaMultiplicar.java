@@ -75,7 +75,7 @@ public class ControlTablaMultiplicar {
 			case 3:
 				cambiarTabla();
 				break;
-			case 0: // Salir
+			case 0:
 				break;
 			default: // Opciones no implementadas
 				opciónNoDisponible();
@@ -83,7 +83,11 @@ public class ControlTablaMultiplicar {
 			}
 
 		} while (opción!=0);
-		VistaGeneral.mostrarAviso("FIN");
+		if (VistaGeneral.pedirConfirmacion("¿Estas seguro que quieres salir?")) {
+			VistaGeneral.mostrarAviso("FIN");
+		} else {
+			buclePrincipal();
+		}
 
 	}
 
