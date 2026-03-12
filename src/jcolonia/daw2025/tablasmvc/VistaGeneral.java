@@ -103,7 +103,7 @@ public class VistaGeneral {
 			} else if (entrada.equalsIgnoreCase("no") || entrada.equalsIgnoreCase("false")) {
 				return false;
 			} else {
-				System.out.printf(FORMATO_PRINTF_MOSTRARAVISO, "Introduzca si o no!!!");
+				System.out.printf(FORMATO_PRINTF_MOSTRARAVISO, "Introduzca si o no");
 			}
 		}
 	}
