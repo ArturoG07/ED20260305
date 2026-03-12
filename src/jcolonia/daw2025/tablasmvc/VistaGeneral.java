@@ -1,5 +1,6 @@
 package jcolonia.daw2025.tablasmvc;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.List;
 
@@ -45,10 +46,14 @@ public class VistaGeneral {
 
 	/**
 	 * Muestra por pantalla un titulo
-	 * @param texto Titulo que se quiere mostrar
+	 * @param titulo Titulo que se quiere mostrar
 	 */
-	public void mostrarTitulo(String texto) {
-		System.out.printf(texto);
+	public void mostrarTitulo(String titulo) {
+		System.out.println(titulo);
+		for (int i= 0; i < titulo.length(); i++) {
+			System.out.print("_");
+		}
+		System.out.println();
 	}
 
 	/**
@@ -63,15 +68,24 @@ public class VistaGeneral {
 	 * Pide un numero por consola
 	 * @param texto Mensaje para pedir el numero
 	 * @return Num Numero escrito por consola
+	 * @throws ExcepcionES Si el numero no esta en formato numerico
 	 */
-	public int pedirNúmero(String texto) {
-		Scanner sc;
-		sc = getScEntrada();
+	public int pedirNúmero(String texto) throws ExcepcionES {
+		Scanner sc = getScEntrada();
+		int num;
+
 		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
-		int Num;
-		Num = sc.nextInt();
+
+		try {
+			num = sc.nextInt();
+		} catch (InputMismatchException e) {
+			sc.nextLine();
+			mostrarAviso("Introduza un numero valido en formato numerico (1, 2, 3)");
+			throw new ExcepcionES("");
+		}
+
 		sc.nextLine();
-		return Num;
+		return num;
 	}
 
 	/**

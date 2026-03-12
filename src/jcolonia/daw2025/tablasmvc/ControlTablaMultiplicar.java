@@ -56,14 +56,24 @@ public class ControlTablaMultiplicar {
 	public void buclePrincipal(){
 		VistaMenú menú;
 		int opción;
+		opción = 0;
+		boolean correcto;
 
 		menú = new VistaMenú("Tablas de multiplicar",OPCIONES_MENÚ_PRINCIPAL);
 
 		do{
+			correcto = false;
 			System.out.println("Estamos en la tabla del " + tabla.getNumero());
-			menú.mostrarTitulo2("Menu Principal");
+			VistaGeneral.mostrarTitulo("Menu Principal");
 			menú.mostrarOpciones();
-			opción = menú.pedirOpcion();
+			while (!correcto) {
+				try {
+					opción = menú.pedirOpcion();
+					correcto = true;
+				} catch (ExcepcionES e) {
+					VistaGeneral.mostrarAviso("Introduzca una opcion en formato numerico");
+				}
+			}
 
 			switch(opción){
 			case 1:
@@ -77,7 +87,7 @@ public class ControlTablaMultiplicar {
 				break;
 			case 0:
 				break;
-			default: // Opciones no implementadas
+			default:
 				opciónNoDisponible();
 				break;
 			}
@@ -107,10 +117,19 @@ public class ControlTablaMultiplicar {
 	* Cambia la tabla activa por otra elegida por el usuario.
 	*/
 	private void cambiarTabla(){
-		int n;
+		boolean correcto = false;
+		int numero = 0;
 
-		n = VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
-		tabla=new TablaMultiplicar(n);
+		while (!correcto) {
+			try {
+				numero = VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
+				correcto = true;
+			} catch (ExcepcionES e) {
+				System.out.println(e.getMessage());
+			}
+		}
+
+		tabla=new TablaMultiplicar(numero);
 		tabla.generarTabla();
 	}
 
@@ -130,6 +149,7 @@ public class ControlTablaMultiplicar {
 	*/
 	private void opciónNoDisponible(){
 		VistaGeneral.mostrarAviso("Opcion no disponible");
+		VistaGeneral.pausa("Presione enter para continuar");
 	}
 
 }

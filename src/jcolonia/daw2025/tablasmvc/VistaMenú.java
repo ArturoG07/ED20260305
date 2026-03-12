@@ -1,6 +1,7 @@
 package jcolonia.daw2025.tablasmvc;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,18 +40,6 @@ public class VistaMenú{
 	}
 
 	/**
-	 * Imprime el titulo por pantalla
-	 * @param titulo2 Titulo que se quiere mostrar
-	 */
-	public void mostrarTitulo2(String titulo2) {
-		System.out.println(titulo2);
-		for (int i= 0; i < titulo2.length(); i++) {
-			System.out.print("_");
-		}
-		System.out.println();
-	}
-
-	/**
 	 * Muestra por pantalla todas las opciones
 	 */
 	public void mostrarOpciones() {
@@ -69,11 +58,15 @@ public class VistaMenú{
 	 * @return num Numero de opcion leido por consola
 	 */
 	public int pedirOpcion() {
-		int num;
 		Scanner sc;
 		sc = new Scanner(System.in);
-		System.out.print("Elija la opcion");
-		num = sc.nextInt();
-		return num;
+		int numero;
+			try {
+				System.out.print("Elija la opcion");
+				numero = sc.nextInt();
+			} catch (InputMismatchException e) {
+				throw new ExcepcionES("Introduzca un numero valido");
+			}
+		return numero;
 	}
 }
