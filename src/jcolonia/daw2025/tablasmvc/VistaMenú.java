@@ -48,7 +48,7 @@ public class VistaMenú{
 			System.out.print(i+1 + ")"); } else {
 				System.out.print(0 + ")");
 			}
-			System.out.print(opciones.get(i));
+			System.out.print(" " + opciones.get(i));
 			System.out.println();
 		}
 	}
@@ -62,9 +62,10 @@ public class VistaMenú{
 		sc = new Scanner(System.in);
 		int numero;
 			try {
-				System.out.print("Elija la opcion");
+				System.out.print("Elija la opción: ");
 				numero = sc.nextInt();
 			} catch (InputMismatchException e) {
+				sc.nextLine(); // Consumir la entrada inválida
 				throw new ExcepcionES("Introduzca un numero valido");
 			}
 		return numero;

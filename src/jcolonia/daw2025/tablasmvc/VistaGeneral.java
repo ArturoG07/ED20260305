@@ -80,7 +80,7 @@ public class VistaGeneral {
 			num = sc.nextInt();
 		} catch (InputMismatchException e) {
 			sc.nextLine();
-			mostrarAviso("Introduza un numero valido en formato numerico (1, 2, 3)");
+			mostrarAviso("Introduzca un numero valido en formato numerico (1, 2, 3)");
 			throw new ExcepcionES("");
 		}
 
