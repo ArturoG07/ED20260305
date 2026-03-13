@@ -27,7 +27,7 @@ public class ControlTablaMultiplicar {
 	/**
 	 *
 	 */
-	VistaGeneral VistaGeneral = new VistaGeneral();
+	VistaGeneral vistaGeneral = new VistaGeneral();
 
 	/**
 	 * Inicializador del control de las tablas
@@ -61,44 +61,43 @@ public class ControlTablaMultiplicar {
 
 		menú = new VistaMenú("Tablas de multiplicar",OPCIONES_MENÚ_PRINCIPAL);
 
-		do{
+		do {
 			correcto = false;
 			System.out.println("Estamos en la tabla del " + tabla.getNumero());
-			VistaGeneral.mostrarTitulo("Menu Principal");
+			vistaGeneral.mostrarTitulo("Menu Principal");
 			menú.mostrarOpciones();
 			while (!correcto) {
 				try {
 					opción = menú.pedirOpcion();
 					correcto = true;
 				} catch (ExcepcionES e) {
-					VistaGeneral.mostrarAviso("Introduzca una opcion en formato numerico");
+					vistaGeneral.mostrarAviso("Introduzca una opción en formato numérico");
 				}
 			}
+				switch(opción){
+				case 1:
+					mostrarTabla();
+					break;
+				case 2:
+					exportarTabla();
+					break;
+				case 3:
+					cambiarTabla();
+					break;
+					case 0:
+						break;
 
-			switch(opción){
-			case 1:
-				mostrarTabla();
-				break;
-			case 2:
-				exportarTabla();
-				break;
-			case 3:
-				cambiarTabla();
-				break;
-			case 0:
-				break;
-			default:
-				opciónNoDisponible();
-				break;
-			}
+				default:
+					opciónNoDisponible();
+					break;
+				}
 
-		} while (opción!=0);
-		if (VistaGeneral.pedirConfirmacion("¿Estas seguro que quieres salir?")) {
-			VistaGeneral.mostrarAviso("FIN");
+			} while (opción!=0);
+		if (vistaGeneral.pedirConfirmacion("¿Estas seguro que quieres salir?")) {
+			vistaGeneral.mostrarAviso("FIN");
 		} else {
 			buclePrincipal();
 		}
-
 	}
 
 	/**
@@ -108,7 +107,7 @@ public class ControlTablaMultiplicar {
 	private void mostrarTabla(){
 		List<String> tablaPantalla = tabla.toListaPantalla();
 		for (int i = 0; i < 10; i++) {
-			VistaGeneral.mostrarTexto(tablaPantalla.get(i));
+			vistaGeneral.mostrarTexto(tablaPantalla.get(i));
 			System.out.println();
 		}
 	}
@@ -122,7 +121,7 @@ public class ControlTablaMultiplicar {
 
 		while (!correcto) {
 			try {
-				numero = VistaGeneral.pedirNúmero("Introduzca el número para la tabla");
+				numero = vistaGeneral.pedirNúmero("Introduzca el número para la tabla");
 				correcto = true;
 			} catch (ExcepcionES e) {
 				System.out.println(e.getMessage());
@@ -148,8 +147,8 @@ public class ControlTablaMultiplicar {
 	 * la opción elegida no está disponible.
 	*/
 	private void opciónNoDisponible(){
-		VistaGeneral.mostrarAviso("Opcion no disponible");
-		VistaGeneral.pausa("Presione enter para continuar");
+		vistaGeneral.mostrarAviso("Opción no disponible");
+		vistaGeneral.pausa("Presione enter para continuar");
 	}
 
 }
