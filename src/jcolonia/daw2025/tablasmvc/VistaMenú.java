@@ -62,7 +62,7 @@ public class VistaMenú{
 		sc = new Scanner(System.in);
 		int numero;
 			try {
-				System.out.print("Elija la opción: ");
+				System.out.print("Elija la opcion");
 				numero = sc.nextInt();
 			} catch (InputMismatchException e) {
 				sc.nextLine(); // Consumir la entrada inválida
