@@ -72,16 +72,19 @@ public class VistaGeneral {
 	 */
 	public int pedirNúmero(String texto) throws ExcepcionES {
 		Scanner sc = getScEntrada();
-		int num;
+		int num = 0;
+		boolean correcto = false;
 
 		System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
-
-		try {
-			num = sc.nextInt();
-		} catch (InputMismatchException e) {
-			sc.nextLine();
-			mostrarAviso("Introduzca un número válido en formato numérico (1, 2, 3)");
-			throw new ExcepcionES("");
+		while (!correcto) {
+			try {
+				num = sc.nextInt();
+				correcto = true;
+			} catch (InputMismatchException e) {
+				sc.nextLine();
+				mostrarAviso("Introduzca un número válido en formato numérico (1, 2, 3)");
+				correcto = false;
+			}
 		}
 
 		sc.nextLine();
