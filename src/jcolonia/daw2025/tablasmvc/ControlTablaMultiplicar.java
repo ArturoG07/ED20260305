@@ -136,10 +136,10 @@ public class ControlTablaMultiplicar {
 	* Envía a un archivo los productos correspondientes a la tabla activa.
 	*/
 	private void exportarTabla(){
-		ExportaciónArchivo Export;
+		ExportaciónArchivo export;
 		String rutaArchivo = String.format(FORMATO_RUTA_ARCHIVO_EXPORTACIÓN, tabla.getNumero());
-		Export = new ExportaciónArchivo(rutaArchivo);
-		Export.guardar(tabla.toListaExportacion());
+		export = new ExportaciónArchivo(rutaArchivo);
+		export.guardar(tabla.toListaExportacion());
 	}
 
 	/**
