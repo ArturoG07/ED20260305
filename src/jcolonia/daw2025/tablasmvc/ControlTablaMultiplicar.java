@@ -55,25 +55,19 @@ public class ControlTablaMultiplicar {
 	*/
 	public void buclePrincipal(){
 		VistaMenú menú;
-		int opción;
-		opción = 0;
-		boolean correcto;
+		int opción = 5;
 
 		menú = new VistaMenú("Tablas de multiplicar",OPCIONES_MENÚ_PRINCIPAL);
 
 		do {
-			correcto = false;
 			System.out.println("Estamos en la tabla del " + tabla.getNumero());
 			vistaGeneral.mostrarTitulo("Menu Principal");
 			menú.mostrarOpciones();
-			while (!correcto) {
 				try {
 					opción = menú.pedirOpcion();
-					correcto = true;
 				} catch (ExcepcionES e) {
 					vistaGeneral.mostrarAviso("Introduzca una opción en formato numérico");
 				}
-			}
 				switch(opción){
 				case 1:
 					mostrarTabla();
