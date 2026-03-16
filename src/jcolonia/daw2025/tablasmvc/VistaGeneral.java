@@ -107,19 +107,24 @@ public class VistaGeneral {
 	public boolean pedirConfirmacion(String texto) {
 		Scanner sc = getScEntrada();
 		String entrada;
+		boolean confirmado = false;
+		boolean salir = false;
 
-		while (true) {
+		while (!salir) {
 			System.out.printf(FORMATO_PRINTF_MOSTRARTEXTO, texto);
 			entrada = sc.nextLine();
 
 			if (entrada.equalsIgnoreCase("si") || entrada.equalsIgnoreCase("true")) {
-				return true;
+				confirmado = true;
+				salir = true;
 			} else if (entrada.equalsIgnoreCase("no") || entrada.equalsIgnoreCase("false")) {
-				return false;
+				confirmado = false;
+				salir = true;
 			} else {
 				System.out.printf(FORMATO_PRINTF_MOSTRARAVISO, "Introduzca si o no");
 			}
 		}
+		return confirmado;
 	}
 
 	/**
